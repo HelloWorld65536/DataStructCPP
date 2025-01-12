@@ -4,8 +4,8 @@
 template<typename T>
 class LIST_NODE {
     T VALUE;
-    std::unique_ptr<LIST_NODE> FORW = nullptr;
-    std::unique_ptr<LIST_NODE> BACK = nullptr;
+    std::shared_ptr<LIST_NODE> FORW = nullptr;
+    std::shared_ptr<LIST_NODE> BACK = nullptr;
 };
 template<typename K, typename V>
 class TREE_NODE {
@@ -27,7 +27,7 @@ class NUM_ARRAY {
             if(INDEX > SIZE - 1)
                 return NULL;
             else
-                return *(RTR + INDEX);
+                return *(PTR + INDEX);
         }
         void set(unsigned long long INDEX, T VALUE) {
             if(INDEX > SIZE - 1) {
